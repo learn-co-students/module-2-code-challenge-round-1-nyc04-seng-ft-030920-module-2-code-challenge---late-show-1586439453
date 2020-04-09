@@ -1,0 +1,20 @@
+<h1> List of episodes guest has appeared on: </h1>
+
+<% if @guest.appearances.length == 0 %>
+    <p> This guest has had no appearances </p>
+
+    <% else %>
+
+    <ul>
+        <% @guest.appearances.each do |appearance| %>
+            <li>
+            <%= link_to appearance.episode.date, episode_path(appearance.episode) %> with a rating of <%= appearance.rating %>
+            </li> 
+            <%# <% sorted.sort.reverse %>
+        <% end %>
+    </ul>
+
+<% end %>
+
+<%= link_to "Schedule a new appearance", new_appearance_path %>
+<br/> <%= link_to "Return to list of guests", guests_path %>
