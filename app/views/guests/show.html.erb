@@ -1,0 +1,17 @@
+<h1> Guest </h1>
+
+
+Name: <%= @guest.name %> <br>
+Occupation: <%= @guest.occupation.capitalize %>
+
+
+<h2> Appearnce Episodes  </h2>
+<ul>
+<%@guest.episodes.each do |episode| %>
+   
+  Date: <%= link_to episode.date  , episode_path(episode) %> Rating: <%= @guest.appearances.first.rating%>
+   
+
+<%end %>
+
+</ul>
