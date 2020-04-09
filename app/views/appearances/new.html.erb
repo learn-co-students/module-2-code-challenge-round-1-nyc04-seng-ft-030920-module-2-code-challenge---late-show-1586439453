@@ -1,0 +1,18 @@
+<h1>Create a New Appearance</h1>
+<% if @errors %>
+    <p style='color: red'>
+        <% @errors.each do |e| %>
+            <%= e %>
+        <% end %>
+    </p>
+<% end %>
+
+<%= form_for @appearance do |a| %>
+    <%= a.label :guest %>
+    <%= a.collection_select :guest_id, @guests, :id, :name %><br><br>
+    <%= a.label :episode %>
+    <%= a.collection_select :episode_id, @episodes, :id, :number %><br><br>
+    <%= a.label :rating%>
+    <%= a.number_field :rating, in: 1..5 %><br><br>
+    <%= a.submit %>
+<% end %>
