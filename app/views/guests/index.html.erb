@@ -2,6 +2,9 @@
 
 <ul>
   <% @guests.each do |guest| %>
-    <li><%= guest.name %></li>
+    <li><%= link_to guest.name, guest_path(guest) %></li>
   <% end %>
 </ul>
+
+<%= link_to "Schedule a new appearance", new_appearance_path %>
+<br/><%= link_to "See all episodes", episodes_path %>
