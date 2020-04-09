@@ -1,15 +1,4 @@
 <h1>Episode - <%= @episode.number %></h1>
 <h2>Date: <%= @episode.date.strftime("%B %d, %Y")%></h2>
 
-<% if @episode.guests_exist? %>
-    <ol>
-    <% @guests.each do |g| %>
-        <li><%= link_to g.name, guest_path(g) %></li>
-    <% end %>
-    </ol>
-<% else%>
-    <p>This episode has no guests.</p>
-<% end %>
-
-<%= link_to 'Create New Appearance', new_appearance_path %><br><br>
-<%= link_to 'Return to Episode index', episodes_path %>
+<%= render 'appearances/form' %>

@@ -1,14 +1,4 @@
 <h1>Guest Name: <%= @guest.name %></h1>
 <h2>Occupation: <%= @guest.occupation_proper %></h2>
 
-<% if @guest.episodes_exist? %>
-    <ol>
-    <% @guests.each do |g| %>
-        <li><%= link_to g.name, guest_path(g) %></li>
-    <% end %>
-    </ol>
-<% else%>
-    <p>This <%= @guest.occupation_proper %> hasn't appeared on any episodes.</p>
-<% end %>
-
-<%= link_to 'Return to Guest Index', guests_path %>
+<%= render 'appearances/form' %>

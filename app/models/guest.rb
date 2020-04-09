@@ -6,7 +6,4 @@ class Guest < ApplicationRecord
         occupation.split(/(\W)/).map(&:capitalize).join
     end
 
-    def episodes_exist?
-        episodes.count > 0
-    end
 end
