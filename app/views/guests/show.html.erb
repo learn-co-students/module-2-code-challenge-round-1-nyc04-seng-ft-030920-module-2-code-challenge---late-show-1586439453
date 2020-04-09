@@ -1,10 +1,22 @@
 <h1>Guest: <%= @guest.name %></h1>
 <h3>Occupation: <%= @guest.occupation %></h3>
-<br>
+<h3>Episodes:</h3>
 
-<%= @guest.name %>'s episodes
-<% @guest.appearances.each do |appearance| %>
-    <ul>
-        <li><%= link_to "Date: #{appearance.episode.date}, Rating: #{appearance.rating}", episode_path(appearance.episode) %></li>
-    </ul>
+<% if @guest.episodes.length < 1 %>
+    This guest doesn't have any episodes yet.
+<% else %>
+    <% @guest.appearances.sort { |a,b| b.rating <=> a.rating }.each do |appearance| %>
+        <ul>
+            <li><%= link_to "Date: #{appearance.episode.date}, Rating: #{appearance.rating}", episode_path(appearance.episode) %></li>
+        </ul>
+    <% end %>
 <% end %>
+
+<%
+# sort appearances by rating 
+# can we separate our functions by sorting the guest's appearances first?
+# and then using the .each method to display each appearance?
+# example:
+    # [apple pear fig].sort_by { |word| word.length }
+    # => ["fig", "pear", "apple"]
+%>

@@ -23,6 +23,11 @@ jane = Guest.find_by(name: "Jane Seymour")
 rebecca = Guest.find_by(name: "Rebecca Gayheart")
 
 Appearance.create(guest_id: michael.id, episode_id: 12, rating: 4)
+#invalid
+# app = Appearance.create(guest_id: michael.id, episode_id: 12, rating: 1)
+
+Appearance.create(guest_id: michael.id, episode_id: 30, rating: 5)
+Appearance.create(guest_id: michael.id, episode_id: 1, rating: 1)
 Appearance.create(guest_id: jane.id, episode_id: 9, rating: 3)
 Appearance.create(guest_id: rebecca.id, episode_id: 20, rating: 1)
 

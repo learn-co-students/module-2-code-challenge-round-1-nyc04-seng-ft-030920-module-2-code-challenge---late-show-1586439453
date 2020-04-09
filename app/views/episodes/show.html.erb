@@ -1,11 +1,13 @@
 <h1>Episode #<%= @episode.number %></h1>
 <h3>Date: <%= @episode.date %></h3>
-<br>
-
-Guests on this episode
-<% @episode.guests.each do |guest| %>
-    <ul>
-        <li><%= link_to guest.name, guest_path(guest) %></li>
-    </ul>
-
+<h3>Average Rating: <%= @avg_rating %> </h3>
+<h3>Guests on this episode:</h3>
+<% if @episode.guests.length < 1 %>
+    There aren't any guests on this episode.
+<% else %>
+    <% @episode.guests.each do |guest| %>
+        <ul>
+            <li><%= link_to guest.name, guest_path(guest) %></li>
+        </ul>
+    <% end %>
 <% end %>

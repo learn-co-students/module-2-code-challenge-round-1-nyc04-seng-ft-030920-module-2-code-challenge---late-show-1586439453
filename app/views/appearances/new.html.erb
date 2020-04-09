@@ -1,5 +1,17 @@
 <h1>Create a new appearance</h1>
 
+<% if @appearance.errors.any? %>
+  <div id="error_explanation">
+    <h3><%= pluralize(@appearance.errors.count, "error") %> found:</h3>
+ 
+    <ul>
+    <% @appearance.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
 <%= form_for @appearance do |f| %>
     <%= f.label :guest_id %><br>
     <%= f.collection_select :guest_id, Guest.all, :id, :name %><br>
