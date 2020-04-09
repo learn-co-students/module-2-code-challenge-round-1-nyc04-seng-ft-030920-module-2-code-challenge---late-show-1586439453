@@ -1,0 +1,26 @@
+<h1>New Appearance Form:</h1>
+
+<% if @appearance.errors.any? %>
+  <div id="error_explanation">
+    <h2>
+      <%= pluralize(@appearance.errors.count, "error") %>
+      prohibited this appearance from being added:
+    </h2>
+ 
+    <ul>
+    <% @appearance.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%= form_for @appearance do |a| %>
+    <%= a.label :guest %>
+    <%= a.collection_select :guest_id, Guest.all, :id, :name %>
+    <%= a.label :episode %>
+    <%= a.collection_select :episode_id, Episode.all, :id, :number %>
+    <%= a.label :rating %>
+    <%= a.number_field :rating, in: 0..5 %>
+    <%= a.submit %>
+<% end %>

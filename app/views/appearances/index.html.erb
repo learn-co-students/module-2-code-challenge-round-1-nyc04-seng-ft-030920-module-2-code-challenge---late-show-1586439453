@@ -1,0 +1,7 @@
+<h1>All Appearances</h1>
+
+<ul>
+  <% @appearances.each do |appearance| %>
+    <li><%= link_to "Appearance on #{appearance.episode.date} - #{appearance.guest.name}", appearance_path(appearance) %></li>
+  <% end %>
+</ul>
