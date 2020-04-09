@@ -1,0 +1,21 @@
+
+<% if @appearances.exists? %>
+    <p>Average Rating: <%= Appearance.avg_rating(@appearances) %></p>
+    <h3>Appearances:</h3>
+    <ol>
+    <% @appearances.each do |a| %>
+     <% if @episode %>
+        <li><%= link_to "#{a.guest.name} #{a.date_format}", guest_path(a.guest) %> 
+        <%= a.det_format %></li>
+    <% else %>
+        <li><%= link_to a.date_format, episode_path(a.episode) %> 
+        <%= a.det_format %></li>
+    <% end %>
+    <% end%>
+    </ol>
+<% else%>
+    <p>There are no appearances.</p>
+<% end %>
+
+<%= link_to 'Create New Appearance', new_appearance_path %><br><br>
+<%= link_to 'Return to Episode index', episodes_path %>
