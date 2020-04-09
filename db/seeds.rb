@@ -1,12 +1,5 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
-
 Guest.destroy_all
+Appearance.destroy_all
 
 require 'csv'
 
@@ -25,3 +18,14 @@ date = Date.parse('2015-09-08')
   date = date.next
 end
 
+michael = Guest.find_by(name: "Michael J. Fox")
+jane = Guest.find_by(name: "Jane Seymour")
+rebecca = Guest.find_by(name: "Rebecca Gayheart")
+
+Appearance.create(guest_id: michael.id, episode_id: 12, rating: 4)
+Appearance.create(guest_id: jane.id, episode_id: 9, rating: 3)
+Appearance.create(guest_id: rebecca.id, episode_id: 20, rating: 1)
+
+# episode = Episode.find_by(number: 12)
+# app = Appearance.find_by(guest_id: 274, episode_id: 12)
+# app.rating
