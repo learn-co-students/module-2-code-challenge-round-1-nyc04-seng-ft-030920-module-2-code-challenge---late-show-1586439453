@@ -1,0 +1,14 @@
+<h1> Episode Show Page </h1>
+
+<h2>Number: <%= @episode.number %> </h2>
+<h2>Date: <%= @episode.date %> </h2>
+<h2> Guests: </h2>
+<ul>
+    <% @episode.guests.each do |guests| %> 
+        <li> <%= link_to guests.name, guest_path(guests) %> </li>
+    <% end %>
+</ul>
+
+<h2> Average Rating: </h2>
+<%= @average %>
+
