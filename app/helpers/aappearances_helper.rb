@@ -1,0 +1,2 @@
+module AappearancesHelper
+end

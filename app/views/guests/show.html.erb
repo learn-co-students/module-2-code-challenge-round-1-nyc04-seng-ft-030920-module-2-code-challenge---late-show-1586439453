@@ -1,0 +1,6 @@
+<h1><%= @guest.name %></h1>
+<ul>
+<% @guest.appearances.sort_by{|a| a.rating }.reverse.each do |a| %>
+<li><%= link_to "Episode ##{a.episode.number} - Date: #{a.episode.date} - Rating: #{a.rating}", episode_path(a.episode) %></li>
+<% end %>
+</ul>
